@@ -1,0 +1,390 @@
+/* ==========================================================================
+   디자인 토큰 — 색·간격·글꼴 크기를 여기서 한 번에 바꿀 수 있습니다.
+   방향: "따뜻하고 편안한" (온기 있는 아이보리 배경, 넉넉한 여백)
+        + "연구소 같은 정밀함" (차분한 딥그린, 얇은 선, 정돈된 격자)
+   ========================================================================== */
+:root {
+  /* 배경 / 면 */
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-warm: #f4efe8;
+
+  /* 글자 */
+  --ink: #1b1f1e;
+  --ink-soft: #4a5250;
+  --ink-muted: #7b8280;
+
+  /* 브랜드 */
+  --primary: #0f4c48;
+  --primary-hover: #0a3a37;
+  --primary-tint: #e6efed;
+  --accent: #b9683f;
+  --accent-tint: #f8ede5;
+
+  /* 선 */
+  --line: #e6e0d7;
+  --line-strong: #d4ccbf;
+
+  /* 형태 */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(27, 31, 30, 0.04), 0 8px 24px rgba(27, 31, 30, 0.05);
+
+  /* 레이아웃 */
+  --container: 1080px;
+  --gutter: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 고정 헤더에 가려지지 않도록 */
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all; /* 한글 단어 중간에서 줄바꿈되지 않게 */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== 레이아웃 유틸 ===== */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.section--tint {
+  background: var(--surface-warm);
+}
+
+.section--dark {
+  background: var(--primary);
+  color: #fff;
+}
+
+.section__eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.section--dark .section__eyebrow {
+  color: #a9cfc9;
+}
+
+.section__title {
+  font-size: clamp(26px, 3.6vw, 38px);
+  margin-bottom: 18px;
+}
+
+.section__lead {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+.section--dark .section__lead {
+  color: #d6e6e3;
+}
+
+.section__head {
+  margin-bottom: 48px;
+}
+
+/* ===== 버튼 ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn--ghost {
+  border-color: var(--line-strong);
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn--ghost:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn--onDark {
+  background: #fff;
+  color: var(--primary);
+}
+
+.btn--onDark:hover {
+  background: var(--primary-tint);
+}
+
+/* ===== 카드 ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ===== 헤더 ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 16px;
+}
+
+.header__logo {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.header__logo span {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.header__nav a:hover {
+  color: var(--primary);
+}
+
+.header__tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* ===== 푸터 ===== */
+.footer {
+  background: #14201f;
+  color: #a8b3b1;
+  padding: 56px 0 40px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.footer__name {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+}
+
+.footer__bottom {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid #2a3735;
+  font-size: 13px;
+  color: #77817f;
+}
+
+/* ===== 사진 자리표시(placeholder) ===== */
+.ph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: repeating-linear-gradient(
+    45deg,
+    #efe9e0,
+    #efe9e0 12px,
+    #e9e2d7 12px,
+    #e9e2d7 24px
+  );
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  color: #9a9086;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 16px;
+}
+
+.ph__label {
+  color: #7d7469;
+}
+
+.ph__hint {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 860px) {
+  body {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section__head {
+    margin-bottom: 32px;
+  }
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .header__nav {
+    gap: 16px;
+    font-size: 15px;
+  }
+
+  .header__logo span {
+    display: none;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .header__inner {
+    height: 64px;
+  }
+
+  .header__tel span {
+    display: none;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}
+
+/* ===== 글꼴 =====
+   Pretendard (한글 웹폰트 표준). CDN 링크는 app/layout.tsx 의 <head> 에 있습니다. */
+html,
+body,
+button,
+input {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+}

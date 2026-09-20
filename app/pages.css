@@ -1,0 +1,545 @@
+/* ==========================================================================
+   페이지 요소 스타일
+   (토큰과 공통 레이아웃은 globals.css 에 있습니다)
+   ========================================================================== */
+
+/* ===== 히어로 (메인) ===== */
+.hero {
+  padding: 72px 0 0;
+  background: linear-gradient(180deg, #f6f1ea 0%, var(--bg) 70%);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-tint);
+  padding: 7px 14px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.hero__title {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.32;
+  margin-bottom: 24px;
+}
+
+.hero__lead {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 54ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.hero__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 72px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.hero__facts li {
+  padding: 28px 28px 28px 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  border-right: 1px solid var(--line);
+}
+
+.hero__facts li:last-child {
+  border-right: 0;
+}
+
+.hero__facts li:not(:first-child) {
+  padding-left: 28px;
+}
+
+.hero__facts strong {
+  display: block;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+/* ===== 페이지 머리 (하위 페이지) ===== */
+.pagehead {
+  padding: 80px 0 64px;
+  background: linear-gradient(180deg, #f6f1ea 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.pagehead__title {
+  font-size: clamp(30px, 4.4vw, 46px);
+  line-height: 1.34;
+  margin-bottom: 20px;
+}
+
+.pagehead__lead {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+/* ===== 증상 바로가기 ===== */
+.anchors {
+  position: sticky;
+  top: 72px;
+  z-index: 40;
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.anchors__inner {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.anchors__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.anchors a {
+  flex: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.anchors a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-tint);
+}
+
+/* ===== 카드 변형 ===== */
+.symptom-card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.symptom-card p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.treat__name {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.treat__body {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+}
+
+.section__more {
+  margin-top: 36px;
+}
+
+.note {
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.8;
+}
+
+.note--onDark {
+  margin-top: 36px;
+  color: #a9bdba;
+}
+
+/* ===== 비교 (증상 vs 원인) ===== */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.compare__col {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+
+.compare__col--ours {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.compare__tag {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--primary);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.compare__tag--plain {
+  background: var(--surface-warm);
+  color: var(--ink-muted);
+}
+
+.compare__col li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.compare__col li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.compare__col--ours li::before {
+  background: var(--accent);
+}
+
+/* ===== 2단 구성 (두개경추 섹션 등) ===== */
+.ccj {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.ccj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ccj-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.ccj-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.ccj-card p {
+  font-size: 15.5px;
+  color: #cfdfdc;
+  line-height: 1.8;
+}
+
+/* ===== 진료 흐름 ===== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.steps__item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.steps__no {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.steps__title {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.steps__body {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+/* ===== 증상 상세 블록 ===== */
+.symptom {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.symptom--reverse .symptom__body {
+  order: 2;
+}
+
+.symptom__sub {
+  font-size: 16px;
+  color: var(--primary);
+  margin: 32px 0 14px;
+}
+
+.symptom__p {
+  color: var(--ink-soft);
+  font-size: 16.5px;
+  margin-bottom: 14px;
+}
+
+.ticks li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  font-size: 16.5px;
+}
+
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 8px;
+  height: 14px;
+  border: solid var(--accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ticks--onDark li {
+  color: #d6e6e3;
+  margin-bottom: 14px;
+}
+
+.ticks--onDark li::before {
+  border-color: #8fc4bc;
+}
+
+.ticks--onDark a {
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ===== 마무리 CTA ===== */
+.cta {
+  text-align: center;
+  max-width: 720px;
+}
+
+.cta .section__title {
+  margin-bottom: 18px;
+}
+
+/* ===== 원장 소개 ===== */
+.doctor {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.doctor__p {
+  color: var(--ink-soft);
+  font-size: 16.5px;
+  margin-bottom: 16px;
+}
+
+.doctor__sign {
+  margin-top: 28px;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+.doctor__sign strong {
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.doctor__cv {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.doctor__cv li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.doctor__cv li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ===== 갤러리 ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ===== 진료 안내 ===== */
+.info {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.info__title {
+  font-size: 16px;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.info__hours li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+}
+
+.info__hours li:last-child {
+  border-bottom: 0;
+}
+
+.info__hours span {
+  width: 100px;
+  flex: none;
+  color: var(--ink-muted);
+  font-size: 15px;
+}
+
+.info__hours em {
+  font-style: normal;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.info__tel {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+.info__addr {
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 960px) {
+  .hero__inner,
+  .ccj,
+  .symptom,
+  .doctor,
+  .info {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .symptom--reverse .symptom__body {
+    order: 0;
+  }
+
+  .hero__visual {
+    max-width: 420px;
+  }
+
+  .ccj-grid,
+  .steps,
+  .compare {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__facts {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+
+  .hero__facts li {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 20px 0;
+  }
+
+  .hero__facts li:not(:first-child) {
+    padding-left: 0;
+  }
+
+  .hero__facts li:last-child {
+    border-bottom: 0;
+  }
+
+  .anchors {
+    top: 64px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 44px;
+  }
+
+  .pagehead {
+    padding: 52px 0 44px;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+}
