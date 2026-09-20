@@ -521,8 +521,9 @@
     border-bottom: 0;
   }
 
+  /* 모바일에서는 고정 헤더가 2줄이라, 바로가기 줄은 고정하지 않습니다 */
   .anchors {
-    top: 64px;
+    position: static;
   }
 
   .gallery {

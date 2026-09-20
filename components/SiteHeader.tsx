@@ -11,16 +11,18 @@ export default function SiteHeader() {
           <span>{site.nameEn.toUpperCase()}</span>
         </Link>
 
-        <nav className="header__nav">
+        {/* 모바일에서는 이 줄이 로고 아래로 내려갑니다 */}
+        <nav className="header__links">
           {nav.map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
           ))}
-          <a className="header__tel" href={site.telHref}>
-            <span>전화</span> {site.tel}
-          </a>
         </nav>
+
+        <a className="header__tel" href={site.telHref}>
+          <span>전화</span> {site.tel}
+        </a>
       </div>
     </header>
   );
