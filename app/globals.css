@@ -235,19 +235,15 @@ img {
 }
 
 .header__logo {
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--primary);
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  flex: none;
 }
 
-.header__logo span {
-  display: block;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: var(--ink-muted);
+.header__logo img {
+  height: 42px;
+  width: auto;
+  border-radius: 6px;
 }
 
 .header__links {
@@ -358,9 +354,6 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .header__logo span {
-    display: none;
-  }
 
   .footer__grid {
     grid-template-columns: 1fr;
@@ -378,7 +371,10 @@ img {
 
   .header__logo {
     margin-right: auto;
-    font-size: 17px;
+  }
+
+  .header__logo img {
+    height: 34px;
   }
 
   .header__links {

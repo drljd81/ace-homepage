@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 
@@ -5,10 +6,15 @@ export default function SiteHeader() {
   return (
     <header className="header">
       <div className="container header__inner">
-        <Link href="/" className="header__logo">
-          {site.name}
-          {/* 로고 이미지가 준비되면 위 텍스트를 <img src="/images/logo.svg" /> 로 교체하세요. */}
-          <span>{site.nameEn.toUpperCase()}</span>
+        <Link href="/" className="header__logo" aria-label={site.name}>
+          {/* 로고 원본: public/images/logo.jpg (370x76) */}
+          <Image
+            src="/images/logo.jpg"
+            alt={site.name}
+            width={370}
+            height={76}
+            priority
+          />
         </Link>
 
         {/* 모바일에서는 이 줄이 로고 아래로 내려갑니다 */}
